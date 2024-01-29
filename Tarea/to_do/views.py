@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, TemplateView, ListView
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, TemplateView, ListView, DeleteView
 from  .models import TaskModel
 from .forms import AddForm
 # Create your views here.
@@ -24,3 +25,7 @@ class TareaList(ListView):
     def get_queryset(self):
         return TaskModel.objects.all()
 
+class TareaDelete(DeleteView):
+    model = TaskModel
+    template_name = 'index.html'
+    success_url = reverse_lazy('todo_app:task')
