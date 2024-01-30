@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'to_do',
-    'bootstrap4',
+    'users'
+    
 ]
 
 MIDDLEWARE = [
@@ -79,7 +80,7 @@ WSGI_APPLICATION = 'Tarea.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'To-Do',
+        'NAME': 'To-do',
         'USER': 'David',
         'PASSWORD': 'root',
         'HOST': 'localhost',
@@ -121,6 +122,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+
+AUTH_USER_MODEL = 'users.users'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
