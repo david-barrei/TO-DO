@@ -11,9 +11,10 @@ class TareaView(TemplateView):
 
 class AddTaks(CreateView):
     form_class = AddForm
-    template_name = 'index.html'
+    template_name = 'add-taks.html'
     tasks = TaskModel.objects.all()
     success_url = '.'
+    #
 
 
 
