@@ -21,6 +21,14 @@
       padding: 20px;
       z-index: 1000;
   }
+  #imagen {
+    max-width: 10%;
+    height: 10%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    display: block;
+    margin: 0 auto;
+  }
 </style>
 </head>
 
@@ -60,10 +68,10 @@
     <form class="grid-x grid-margin-x" method='POST' action="{% url 'todo_app:add-task' %}"> {% csrf_token %}
         <div class="cell small-12">
           <div class="cell small-12">
-            <label style="display: block; margin-bottom: 10px;">Titulo: {{ form.title }}</label>
-            <label style="display: block; margin-bottom: 10px;">Descripción: {{ form.description }}</label>
-            <label style="display: block; margin-bottom: 10px;">Completado: {{ form.completed }}</label>
-            <label style="display: block; margin-bottom: 10px;">Fecha de Creación: {{ form.created_at }}</label>
+            <label style="margin-bottom: 10px; width: 300px;">Titulo: {{ form.title }}</label>
+            <label  style="margin-bottom: 10px; width: 300px;">Descripción: {{ form.description }}</label>
+            <label  style="margin-bottom: 10px; width: 300px;">Completado: {{ form.completed }}</label>
+            <label  style="margin-bottom: 10px; width: 300px;">Fecha de Creación: {{ form.created_at }}</label>
         </div>
         
         </div>
@@ -92,8 +100,8 @@
     <td>{{task.description}}</td>
     <td>{{task.completed}}</td>
     <td>{{task.created_at}}</td>
-    <td>{{task.user}}</td>
-    <td><img src="{{ task.user.photo.url }}" ></td>
+    <td>{{task.user.full_name}}</td>
+    <td > <img src="{{ task.user.photo.url }}" height="70"> </td>
     <td>
       <div>
         <a href="#" class="btn">Editar</a>

@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 app_name= "todo_app"
 
@@ -10,4 +12,4 @@ urlpatterns = [
     path('list-task/',views.TareaList.as_view(),name='task'),
     path('delete-task/<int:pk>/',views.TareaDelete.as_view(),name='delete'),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
