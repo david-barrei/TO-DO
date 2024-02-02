@@ -36,7 +36,7 @@
     <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
     <ul>
       <li><a href='http://'>Home</a></li>
-      <li><a class='dropdown-arrow' href='http://'>Products</a>
+      <li><a class='dropdown-arrow' href='{% url 'todo_app:task'%}'>Tareas</a>
         <ul class='sub-menus'>
           <li><a href='http://'>Products 1</a></li>
           <li><a href='http://'>Products 2</a></li>
@@ -44,8 +44,8 @@
           <li><a href='http://'>Products 4</a></li>
         </ul>
       </li>
-      <li><a href='http://'>About</a></li>
-      <li><a class='dropdown-arrow' href='http://'>Services</a>
+      <li><a href=''>Agregar Tarea</a></li>
+      <li><a class='dropdown-arrow' href='{% url 'todo_app:add-task'%}'>Services</a>
         <ul class='sub-menus'>
           <li><a href='http://'>Services 1</a></li>
           <li><a href='http://'>Services 2</a></li>
@@ -55,7 +55,10 @@
       <li><a href='http://'>Contact Us</a></li>
     </ul>
 </nav>
+<body>
+  {% block contenido %}
 
+  {%endblock contenido%}
   <h1> Gestion de Tareas </h1>
 
   <p>
@@ -67,12 +70,14 @@
     
     <form class="grid-x grid-margin-x" method='POST' action="{% url 'todo_app:add-task' %}"> {% csrf_token %}
         <div class="cell small-12">
+         
           <div class="cell small-12">
             <label style="margin-bottom: 10px; width: 300px;">Titulo: {{ form.title }}</label>
             <label  style="margin-bottom: 10px; width: 300px;">Descripción: {{ form.description }}</label>
             <label  style="margin-bottom: 10px; width: 300px;">Completado: {{ form.completed }}</label>
-            <label  style="margin-bottom: 10px; width: 300px;">Fecha de Creación: {{ form.created_at }}</label>
-        </div>
+            <label  style="margin-bottom: 10px; width: 300px;">Usuario: {{ form.user }}</label>
+
+          </div>
         
         </div>
         <div class="cell small-12">
@@ -91,7 +96,7 @@
     <th>Usuario</th>
     <th>Foto</th>
     <th>Acciones</th>
-    <th></th>
+    
   </tr>
 
   {% for task in tasks %}
@@ -104,11 +109,10 @@
     <td > <img src="{{ task.user.photo.url }}" height="70"> </td>
     <td>
       <div>
-        <a href="#" class="btn">Editar</a>
+        <a href="{% url 'todo_app:edit' task.id %}" class="btn">Editar</a>
       </div>
 
-      <div>
-          
+      <div>  
         <form method="post" action="{% url 'todo_app:delete' task.id %}">
             {% csrf_token %}
             <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -122,14 +126,13 @@
   
 </table>
 
-
 <script>
   function mostrarFormulario() {
       var modal = document.getElementById('exampleModal2');
       modal.style.display = 'block';
   }
 </script>
-
+</body>
 </html >
 
 

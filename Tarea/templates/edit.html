@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+
+
+{% block titulo %} Editar Tarea {% endblock titulo %} 
+
+{% block contenido %}
+   <div class="card">
+    <div class="card-header">
+        Editar cliente
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Editar Cliente</h4>
+        <form action="{% url 'todo_app:add-task' %}" method="POST" enctype="multipart/form-data" autocomplete="off">
+            {%  csrf_token %}
+            {{form.title}}
+            {{form.description}}
+            {{form.completed}}
+            {{form.created_at}}
+            {{form.user.full_name}}
+
+            <br>
+            <br>
+            <button name="btn-guardar" id="btn_guardar" class="btn btn-success" type="submit"> Guardar</button>
+            <a name="btnCancelar" id="btnCancelar" class="btn btn-primary" href="{% url 'todo_app:task'%}" role="button">Cancelar</a>
+        </form>
+
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+   </div>
+
+
+
+{% endblock %}
