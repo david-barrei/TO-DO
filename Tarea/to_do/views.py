@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, TemplateView, ListView, DeleteView, UpdateView
 from  .models import TaskModel
@@ -29,10 +29,29 @@ class TareaEdit(UpdateView):
     template_name = 'edit.html'
     model = TaskModel
     form_class = AddForm
-    pk_url_kwarg='pk'
     
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        print('********post******')
+        responde = super().post(request, *args, **kwargs)
+        return HttpResponseRedirect(self.get_success_url())
+        
+
+    def form_valid(self, form):
+        print("El método form_valid se está ejecutando")
+        if form.is_valid():
+            print("El formulario es válido")
+        else:
+            print("El formulario no es válido")
+        return super().form_valid(form)
+
     def get_success_url(self, **kwargs):
-        return reverse('add-taks.html')
+        return reverse_lazy('todo_app:task')
+
+   
+
+
 
 class TareaDelete(DeleteView):
     model = TaskModel

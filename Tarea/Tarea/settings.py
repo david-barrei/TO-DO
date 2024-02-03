@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'to_do',
     'users',
-    'bootstrap4'
+    'bootstrap4',
     
 ]
 
