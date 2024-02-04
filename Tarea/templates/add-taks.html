@@ -1,6 +1,33 @@
-{% extends "index.html" %}
+{% include 'header.html'%}
 
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 
-{% load  static %}
-
+<div  id = "agregar" id="exampleModal2" >
+    <form class="grid-x grid-margin-x" method='POST' action="{% url 'todo_app:add-task' %}"> {% csrf_token %}
+        <div>  
+          <div class="form-group">
+          <label for="{{ form.title.id_for_label }}">Título:</label>
+          {{ form.title }}
+          </div>
+          <div class="form-group">
+          <label for="{{ form.description.id_for_label }}">Descripción:</label>
+          {{ form.description }}
+          </div>
+          <div class="form-group form-check">
+          {{ form.completed }}
+          <label class="form-check-label" for="{{ form.completed.id_for_label }}">Completado</label>
+          </div>
+          <div class="form-group form-check">
+            {{ form.user }}
+            <label class="form-check-label" for="{{ form.completed.id_for_label }}">Usuario:</label>
+          </div>
+          
+        </div>
+        <div class="cell small-12">
+            <button type="submit" class="success button">Guardar</button> 
+        </div>
+    </form>
+</div>
 
