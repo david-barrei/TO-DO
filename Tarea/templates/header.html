@@ -3,7 +3,7 @@
 <nav id='menu'>
     <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
     <ul>
-      <li><a href='http://'>Home</a></li>
+      <li><a href='{% url 'todo_app:home'%}'>Home</a></li>
       <li><a class='dropdown-arrow' href='{% url 'todo_app:task'%}'>Tareas</a>
         <ul class='sub-menus'>
           <li><a href='http://'>Products 1</a></li>

@@ -5,8 +5,8 @@ from  .models import TaskModel
 from .forms import AddForm
 # Create your views here.
 
-class TareaView(TemplateView):
-    template_name = 'index.html'
+class HomeView(TemplateView):
+    template_name = 'home.html'
 
 
 class AddTaks(CreateView):
@@ -18,7 +18,7 @@ class AddTaks(CreateView):
 
 
 class TareaList(ListView):
-    template_name = "index.html"
+    template_name = "list-taks"
     context_object_name = 'tasks'
 
 
@@ -50,8 +50,6 @@ class TareaEdit(UpdateView):
         return reverse_lazy('todo_app:task')
 
    
-
-
 
 class TareaDelete(DeleteView):
     model = TaskModel

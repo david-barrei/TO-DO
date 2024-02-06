@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+
+{% block title%}Tareas {%endblock title%}
+{% block task%}
+    <body>
+    
+        <h1> Gestion de Tareas </h1>
+    
+        <table id="customers">
+            <tr>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th>Completado</th>
+            <th>Creacion</th>
+            <th>Usuario</th>
+            <th>Foto</th>
+            <th>Acciones</th>
+            
+            </tr>
+        
+            {% for task in tasks %}
+            <tr>
+            <td>{{task.title}}</td>
+            <td>{{task.description}}</td>
+            <td>{{task.completed}}</td>
+            <td>{{task.created_at}}</td>
+            <td>{{task.user.full_name}}</td>
+            <td > <img src="{{ task.user.photo.url }}" height="70"> </td>
+            <td>
+                <div>
+                <a href="{% url 'todo_app:edit' task.id %}" class="btn">Editar</a>
+                </div>
+        
+                <div>  
+                <form method="post" action="{% url 'todo_app:delete' task.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>  
+                </div>
+                
+            </td>
+            </tr>
+            {% endfor%}
+            
+        </table>
+    
+    </body>
+ {% endblock task%}
+
+
