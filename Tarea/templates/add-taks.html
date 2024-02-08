@@ -3,10 +3,10 @@
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
-
+<!--Cambiando el estilo-->
 <div  id = "agregar" id="exampleModal2" >
     <form class="grid-x grid-margin-x" method='POST' action="{% url 'todo_app:add-task' %}"> {% csrf_token %}
-        <div>  
+        <div>  <!--Agregando estilos al formulario de tareas-->
           <div class="form-group">
           <label for="{{ form.title.id_for_label }}">Título:</label>
           {{ form.title }}
