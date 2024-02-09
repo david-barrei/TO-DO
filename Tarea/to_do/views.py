@@ -4,7 +4,7 @@ from django.views.generic import CreateView, TemplateView, ListView, DeleteView,
 from  .models import TaskModel
 from .forms import AddForm
 # Create your views here.
-
+#Creando un nuevo modelo
 class HomeView(TemplateView):
     template_name = 'home.html'
 
