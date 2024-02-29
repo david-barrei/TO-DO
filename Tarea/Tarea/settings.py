@@ -81,8 +81,8 @@ WSGI_APPLICATION = 'Tarea.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'To-do',
-        'USER': 'David',
+        'NAME': 'To-do',#Nombre de la aplicacion
+        'USER': 'David',#usuario del postgresql
         'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '5432',
