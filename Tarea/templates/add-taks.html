@@ -6,14 +6,14 @@
 <!--Cambiando el estilo-->
 <div  id = "agregar" id="exampleModal2" >
     <form class="grid-x grid-margin-x" method='POST' action="{% url 'todo_app:add-task' %}"> {% csrf_token %}
-        <div>  <!--Agregando estilos al formulario de tareas-->
+        <div>  <!--Agregando estilos al formulario de tareas en el formulario -->
           <div class="form-group">
           <label for="{{ form.title.id_for_label }}">Título:</label>
-          {{ form.title }}<!-- Arreglando errores de los estilos-->
+          {{ form.title }}<!-- agregando los campos-->
           </div>
           <div class="form-group">
           <label for="{{ form.description.id_for_label }}">Descripción:</label>
-          {{ form.description }}
+          {{ form.description }}<!-- agregando el campo descripcion-->
           </div>
           <div class="form-group form-check">
           {{ form.completed }}
