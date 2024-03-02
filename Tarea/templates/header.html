@@ -1,7 +1,7 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'menu.css' %}">
 <nav id='menu'>
-    <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+    <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label> <!--checkbox -->
     <ul>
       <li><a href='{% url 'todo_app:home'%}'>Home</a></li>
       <li><a class='dropdown-arrow' href='{% url 'todo_app:task'%}'>Tareas</a>
@@ -13,7 +13,7 @@
         </ul>
       </li>
       
-      <li><a class='dropdown-arrow' href='{% url 'todo_app:add-task'%}'>Añadir Tareas</a>
+      <li><a class='dropdown-arrow' href='{% url 'todo_app:add-task'%}'>Añadir Tareas</a><!--Tareas -->
         <ul class='sub-menus'>
           <li><a href='http://'>Services 1</a></li>
           <li><a href='http://'>Services 2</a></li>
