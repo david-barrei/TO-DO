@@ -21,7 +21,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path('',include('aplications.to_do.urls')),
-    re_path('',include('aplications.users.urls')),
+    re_path('',include('aplications.to_do.urls')),#Incluimos las urls de todo
+    re_path('',include('aplications.users.urls')),#incluir url de users
     
 ] 
