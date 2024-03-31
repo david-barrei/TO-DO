@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'aplications.to_do',
     'aplications.users',
-    'bootstrap4',
+    'bootstrapform',
     
 ]
 

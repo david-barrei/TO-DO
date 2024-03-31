@@ -1,8 +1,7 @@
 {% include 'header.html'%}
 
-{% load bootstrap4 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
+{% load bootstrap %}
+
 <!--Cambiando el estilo-->
 <div  id = "agregar" id="exampleModal2" >
     <form class="grid-x grid-margin-x" method='POST' action="{% url 'todo_app:add-task' %}"> {% csrf_token %}
