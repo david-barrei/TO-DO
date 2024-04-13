@@ -1,11 +1,30 @@
+#
 from django.urls import path
-from . import views
-from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.staticfiles.urls import static
+from . import views
 
-app_name= "user_app"
+app_name = "users_app"
 
 urlpatterns = [
-    
-
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path(
+        'register/', 
+        views.UserRegisterView.as_view(),
+        name='user-register',
+    ),
+    path(
+        'login/', 
+        views.LoginUser.as_view(),
+        name='user-login',
+    ),
+    path(
+        'logout/', 
+        views.LogoutView.as_view(),
+        name='user-logout',
+    ),
+    path(
+        'update/', 
+        views.UpdatePasswordView.as_view(),
+        name='user-update',
+    ),
+]  + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)#Carga imagenes

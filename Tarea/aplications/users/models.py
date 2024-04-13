@@ -4,7 +4,7 @@ from .managers import UserManager
 # Create your models here.
 
 
-class users(AbstractBaseUser, PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin):
     GENDER_CHOICES = (
         ('M', 'Masculino'),
         ('F', 'Femenino'),
