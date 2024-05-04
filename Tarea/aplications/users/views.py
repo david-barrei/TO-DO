@@ -25,7 +25,7 @@ from .models import User
 
 
 class UserRegisterView(FormView):
-    template_name = 'users/register.html'
+    template_name = 'register.html'
     form_class = UserRegisterForm
     success_url = reverse_lazy('users_app:user-login')
 
@@ -44,7 +44,7 @@ class UserRegisterView(FormView):
         return super(UserRegisterView, self).form_valid(form)
     
 class LoginUser(FormView):
-    template_name = 'users/login.html'
+    template_name = 'login.html'
     form_class = LoginForm
     success_url = reverse_lazy('favoritos_app:perfil')
 

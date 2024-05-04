@@ -12,6 +12,8 @@ class TaskModel(models.Model):
 
     def __str__(self):
         return self.title
+#Arreglar las tareas 
+#error en la base de datos
 
 
 
